@@ -14,7 +14,7 @@ public class LinearAlgebra {
         return transposta;
     }
 
-    public static Matriz Tranposta(Matriz matriz, int quantidade) {
+    public static Matriz Times(Matriz matriz, double quantidade) {
         Matriz transposta = new Matriz(matriz);
 
         int linhas = transposta.GetLinhas();
@@ -22,7 +22,7 @@ public class LinearAlgebra {
 
         for (int i = 0; i < linhas; i++) {
             for (int j = 0; j < colunas; j++) {
-                transposta.SetValue(j, i, matriz.GetValue(i, j));
+                transposta.SetValue(j, i, matriz.GetValue(i, j) * quantidade);
             }
         }
 
