@@ -11,6 +11,18 @@ public class Matriz {
         dados = new double[linhas][colunas];
     }
 
+    public Matriz(Vector vetor) {
+        linhas = vetor.getDimensao();
+        colunas = 1;
+        dados = new double[linhas][colunas];
+
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                dados[i][j] = vetor.GetValue(i);
+            }
+        }
+    }
+
     public Matriz(Matriz matriz) {
         linhas = matriz.GetLinhas();
         colunas = matriz.GetColunas();

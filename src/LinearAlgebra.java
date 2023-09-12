@@ -1,3 +1,5 @@
+import java.sql.Time;
+
 public class LinearAlgebra {
     public static Matriz Tranposta(Matriz matriz) {
         Matriz transposta = new Matriz(matriz);
@@ -29,6 +31,12 @@ public class LinearAlgebra {
         return transposta;
     }
 
+    public static Vector Times(Vector vetor, double quantidade) {
+        Matriz transposta = new Matriz(vetor);
+
+        return new Vector(Times(transposta, quantidade));
+    }
+
     public static Matriz Soma(Matriz matriz1, Matriz matriz2) {
 
         int linhas1 = matriz1.GetLinhas();
@@ -45,6 +53,14 @@ public class LinearAlgebra {
         }
 
         return soma;
+    }
+
+    public static Vector Soma(Vector vetor1, Vector vetor2) {
+
+        Matriz matriz1 = new Matriz(vetor1);
+        Matriz matriz2 = new Matriz(vetor2);
+
+        return new Vector(Soma(matriz1, matriz2));
     }
 
     public static Matriz Multiplicacao(Matriz matriz1, Matriz matriz2) {
@@ -67,6 +83,13 @@ public class LinearAlgebra {
         }
 
         return resultado;
+    }
+
+    public static Vector Multiplicacao(Vector vetor1, Vector vetor2) {
+        Matriz matriz1 = new Matriz(vetor1);
+        Matriz matriz2 = new Matriz(vetor2);
+
+        return new Vector(Multiplicacao(matriz1, matriz2));
     }
 
     public static Matriz Dot(Matriz matriz1, Matriz matriz2) {
@@ -94,6 +117,14 @@ public class LinearAlgebra {
 
         
     }
+
+    public static Vector Dot(Vector vetor1, Vector vetor2) {
+        Matriz matriz1 = new Matriz(vetor1);
+        Matriz matriz2 = new Matriz(vetor2);
+
+        return new Vector(Dot(matriz1, matriz2));
+    }
+
 
     public static Matriz Gauss(Matriz matriz) {
         Matriz solucao = new Matriz(matriz.GetLinhas(), 1);

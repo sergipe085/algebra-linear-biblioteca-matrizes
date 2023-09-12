@@ -26,11 +26,16 @@ public class Vector {
     public Vector(Vector vector){
         dimensao = vector.getDimensao();
         elementos = new double[dimensao];
-      for( int i = 0; i<dimensao; i++){
+        for( int i = 0; i<dimensao; i++){
             elementos[i] = vector.GetValue(i);
         }
     }
-    
 
-
+    public Vector(Matriz matriz) {
+        dimensao = matriz.GetLinhas();
+        elementos = new double[dimensao];
+        for( int i = 0; i<dimensao; i++){
+            elementos[i] = matriz.GetValue(i, 0);
+        }
+    }
 }
